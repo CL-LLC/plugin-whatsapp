@@ -32,5 +32,3 @@ export class WhatsAppPlugin implements Plugin {
         return this.client.verifyWebhook(token);
     }
 }
-
-export * from "./types";
