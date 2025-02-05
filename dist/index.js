@@ -87,11 +87,11 @@ var WebhookHandler = class {
 
 // src/index.ts
 var WhatsAppPlugin = class {
-  constructor(config) {
-    this.config = config;
+  constructor(waConfig) {
+    this.waConfig = waConfig;
     this.name = "WhatsApp Cloud API Plugin";
     this.description = "A plugin for integrating WhatsApp Cloud API with your application.";
-    this.client = new WhatsAppClient(config);
+    this.client = new WhatsAppClient(waConfig);
     this.messageHandler = new MessageHandler(this.client);
     this.webhookHandler = new WebhookHandler(this.client);
   }
