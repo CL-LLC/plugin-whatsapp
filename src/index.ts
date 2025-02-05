@@ -1,6 +1,6 @@
-import { Plugin } from "@elizaos/core";
+import type { Plugin } from "@elizaos/core";
 import { WhatsAppClient } from "./client";
-import { WhatsAppConfig, WhatsAppMessage, WhatsAppWebhookEvent } from "./types";
+import type { WhatsAppConfig, WhatsAppMessage, WhatsAppWebhookEvent } from "./types";
 import { MessageHandler, WebhookHandler } from "./handlers";
 
 export class WhatsAppPlugin implements Plugin {
@@ -11,11 +11,11 @@ export class WhatsAppPlugin implements Plugin {
     name: string;
     description: string;
 
-    constructor(private config: WhatsAppConfig) {
+    constructor(private waConfig: WhatsAppConfig) {
         this.name = "WhatsApp Cloud API Plugin";
         this.description =
             "A plugin for integrating WhatsApp Cloud API with your application.";
-        this.client = new WhatsAppClient(config);
+        this.client = new WhatsAppClient(waConfig);
         this.messageHandler = new MessageHandler(this.client);
         this.webhookHandler = new WebhookHandler(this.client);
     }
@@ -32,3 +32,5 @@ export class WhatsAppPlugin implements Plugin {
         return this.client.verifyWebhook(token);
     }
 }
+
+export * from "./types";
