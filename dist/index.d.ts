@@ -57,13 +57,12 @@ interface WhatsAppWebhookEvent {
 }
 
 declare class WhatsAppPlugin implements Plugin {
-    private waConfig;
     private client;
     private messageHandler;
     private webhookHandler;
     name: string;
     description: string;
-    constructor(waConfig: WhatsAppConfig);
+    constructor(config: WhatsAppConfig);
     sendMessage(message: WhatsAppMessage): Promise<any>;
     handleWebhook(event: WhatsAppWebhookEvent): Promise<void>;
     verifyWebhook(token: string): Promise<boolean>;
