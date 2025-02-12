@@ -1,12 +1,9 @@
 {
     "compilerOptions": {
-        "outDir": "./dist",
+        "outDir": "dist",
         "rootDir": "src",
-        "baseUrl": ".",
-        "types": ["node", "jest"],
-        "target": "ESNext",
-        "module": "ESNext",
         "lib": ["ESNext", "dom"],
+        "module": "Preserve",
         "moduleResolution": "Bundler",
         "strict": false,
         "esModuleInterop": true,
@@ -23,6 +20,5 @@
         "moduleDetection": "force",
         "allowArbitraryExtensions": true
     },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules", "dist", "**/*.test.ts"]
+    "include": ["src/**/*.ts"]
 }
