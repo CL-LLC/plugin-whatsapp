@@ -1,4 +1,4 @@
-import { Plugin } from '@elizaos/core';
+import { Plugin, Action } from '@elizaos/core';
 
 interface WhatsAppConfig {
     accessToken: string;
@@ -62,10 +62,14 @@ declare class WhatsAppPlugin implements Plugin {
     private webhookHandler;
     name: string;
     description: string;
-    constructor(config: WhatsAppConfig);
-    sendMessage(message: WhatsAppMessage): Promise<any>;
-    handleWebhook(event: WhatsAppWebhookEvent): Promise<void>;
-    verifyWebhook(token: string): Promise<boolean>;
+    actions: Action[];
+    static validate(config: Partial<WhatsAppConfig>): WhatsAppConfig;
+    constructor(config: Partial<WhatsAppConfig>);
+    private sendMessage;
+    private handleWebhook;
+    private verifyWebhook;
 }
 
-export { type WhatsAppConfig, type WhatsAppMessage, WhatsAppPlugin, type WhatsAppTemplate, type WhatsAppWebhookEvent };
+declare const _default: WhatsAppPlugin;
+
+export { type WhatsAppConfig, type WhatsAppMessage, WhatsAppPlugin, type WhatsAppTemplate, type WhatsAppWebhookEvent, _default as default };
