@@ -1,12 +1,15 @@
 import type { WhatsAppMessage, WhatsAppTemplate, WhatsAppConfig } from "../types";
 
-export function validateConfig(config: WhatsAppConfig): void {
+export function validateConfig(config: Partial<WhatsAppConfig>): asserts config is WhatsAppConfig {
     if (!config.accessToken) {
-        throw new Error("WhatsApp access token is required");
+        throw new Error("WhatsApp access token is required. Set WHATSAPP_ACCESS_TOKEN environment variable or provide in config.");
     }
     if (!config.phoneNumberId) {
-        throw new Error("WhatsApp phone number ID is required");
+        throw new Error("WhatsApp phone number ID is required. Set WHATSAPP_PHONE_NUMBER_ID environment variable or provide in config.");
     }
+    
+    // Optional fields don't need validation
+    return;
 }
 
 export function validateMessage(message: WhatsAppMessage): void {

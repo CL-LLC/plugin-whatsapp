@@ -6,7 +6,7 @@ var WhatsAppClient = class {
   constructor(config) {
     this.config = config;
     this.client = axios.create({
-      baseURL: "https://graph.facebook.com/v17.0",
+      baseURL: "https://graph.facebook.com/v19.0",
       headers: {
         Authorization: `Bearer ${config.accessToken}`,
         "Content-Type": "application/json"
