@@ -1,2 +1,17 @@
-node_modules
-.turbo
+# Build artifacts
+.turbo/
+dist/
+*.log
+
+# Development files
+node_modules/
+coverage/
+
+# IDE and OS files
+.vscode/
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.*
